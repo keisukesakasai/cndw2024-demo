@@ -10,3 +10,15 @@ CloudNative Days Winter 2024 のデモ
   - https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/opampsupervisor
 - 他のアプリケーションレイヤ（OTel Collector 含む）は、OTel Collector Contrib の demo を拝借
   - https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/examples/demo
+
+### 備考
+- 一応ローカルでも OpAMP Server / Supervisor は動かせる
+```sh
+# OpAMP Server
+$ cd opamp-server
+$ go run .
+
+# OpAMP Supervisor
+$ cd opamp-supervisor
+$ go run . --config ./demo/supervisor_darwin_local.yaml ( for Mac )
+```

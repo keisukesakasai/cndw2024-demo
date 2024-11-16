@@ -13,6 +13,10 @@ services:
       - "4317:4317"   # OTLP gRPC receiver
       - "55679:55679" # zpages extension
       - "4320:4320"
+    depends_on:
+      - opamp-supervisor
+    networks:
+      - my-network
 
   demo-client:
     build:
@@ -24,6 +28,8 @@ services:
       - DEMO_SERVER_ENDPOINT=http://demo-server:7080/hello
     depends_on:
       - demo-server
+    networks:
+      - my-network
 
   demo-server:
     build:
@@ -36,6 +42,8 @@ services:
       - "7080"
     depends_on:
       - otel-collector
+    networks:
+      - my-network          
 
   opamp-server:
     container_name: opamp-server
@@ -63,7 +71,7 @@ services:
         condition: service_healthy
     restart: unless-stopped
     networks:
-      - my-network    
+      - my-network
 
 networks:
   my-network:
