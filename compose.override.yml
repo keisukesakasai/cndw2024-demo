@@ -1,0 +1,113 @@
+services:
+
+  otel-collector-with-supervisor-a:
+    container_name: otel-collector-with-supervisor-a
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-b:
+    container_name: otel-collector-with-supervisor-b
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-c:
+    container_name: otel-collector-with-supervisor-c
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-d:
+    container_name: otel-collector-with-supervisor-d
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-e:
+    container_name: otel-collector-with-supervisor-e
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-f:
+    container_name: otel-collector-with-supervisor-f
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-g:
+    container_name: otel-collector-with-supervisor-g
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-h:
+    container_name: otel-collector-with-supervisor-h
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+  otel-collector-with-supervisor-i:
+    container_name: otel-collector-with-supervisor-i
+    build:
+      context: ./otel-collector-with-supervisor-sub
+      dockerfile: Dockerfile
+    depends_on:
+      opamp-backend:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge

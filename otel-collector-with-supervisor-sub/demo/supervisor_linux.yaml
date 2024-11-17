@@ -1,0 +1,26 @@
+server:
+  endpoint: wss://opamp-backend:4320/v1/opamp
+  tls:
+    insecure_skip_verify: true
+
+capabilities:
+  accepts_opamp_connection_settings: true
+  accepts_other_connection_settings: true
+  accepts_remote_config: true
+  accepts_restart_command: true
+  reports_effective_config: true
+  reports_own_metrics: true
+  reports_remote_config: true
+  reports_health: true
+  reports_status: true
+
+agent:
+  executable: ./otelcontribcol_linux_amd64
+  description:
+    identifying_attributes:
+      host.name: "OTel Collector with Supervisor - sub"
+    non_identifying_attributes:
+      host.name: "OTel Collector with Supervisor - sub"
+
+storage:
+  directory: /tmp

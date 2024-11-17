@@ -4,14 +4,23 @@ server:
     insecure_skip_verify: true
 
 capabilities:
+  accepts_opamp_connection_settings: true
+  accepts_other_connection_settings: true
+  accepts_remote_config: true
+  accepts_restart_command: true
   reports_effective_config: true
   reports_own_metrics: true
-  reports_health: true
-  accepts_remote_config: true
   reports_remote_config: true
+  reports_health: true
+  reports_status: true
 
 agent:
   executable: ./otelcontribcol_linux_amd64
+  description:
+    identifying_attributes:
+      host.name: "OTel Collector with Supervisor - 1"
+    non_identifying_attributes:
+      host.name: "OTel Collector with Supervisor - 1"
 
 storage:
   directory: /tmp

@@ -1,0 +1,43 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+exporters:
+  debug:
+
+  otlp:
+    endpoint: oteltui:4317
+    tls:
+      insecure: true
+
+processors:
+  batch:      
+
+service:
+
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]    
+
+  telemetry:
+    logs:
+      # Enables JSON log output for the Agent.
+      encoding: json
+    resource:
+      # Set resource attributes suggested by the OpAMP spec.
+      # See https://github.com/open-telemetry/opamp-spec/blob/main/specification.md#agentdescription-message
+      {{range $k, $v := .ResourceAttributes}}{{$k}}: "{{$v}}"
+      {{end}}
+  # Enable extension to allow the Supervisor to check health.
+  extensions: [health_check]
+
+extensions:
+  health_check:
+    endpoint: "{{.Healthcheck}}"

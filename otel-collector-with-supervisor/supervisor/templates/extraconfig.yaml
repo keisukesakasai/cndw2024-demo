@@ -21,10 +21,10 @@ service:
     traces:
       receivers: [otlp]
       exporters: [debug, otlp]
-    metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlp]    
+    # metrics:
+    #   receivers: [otlp]
+    #   processors: [batch]
+    #   exporters: [otlp]    
 
   telemetry:
     logs:
