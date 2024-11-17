@@ -9,8 +9,8 @@ import (
 	"github.com/oklog/ulid/v2"
 	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 
-	certs "opamp-server/certs"
-	"opamp-server/data"
+	certs "opamp-backend/certs"
+	"opamp-backend/data"
 
 	"github.com/open-telemetry/opamp-go/protobufs"
 	"github.com/open-telemetry/opamp-go/server"

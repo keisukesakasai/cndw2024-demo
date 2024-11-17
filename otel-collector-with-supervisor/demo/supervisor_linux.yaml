@@ -1,10 +1,7 @@
 server:
-  endpoint: wss://opamp-server:4320/v1/opamp
+  endpoint: wss://opamp-backend:4320/v1/opamp
   tls:
-    # Disable verification to test locally.
-    # Don't do this in production.
     insecure_skip_verify: true
-    # For more TLS settings see config/configtls.ClientConfig
 
 capabilities:
   reports_effective_config: true
@@ -17,4 +14,4 @@ agent:
   executable: ./otelcontribcol_linux_amd64
 
 storage:
-  directory: .
+  directory: /tmp

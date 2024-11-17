@@ -15,7 +15,7 @@ CloudNative Days Winter 2024 のデモ
 - 一応ローカルでも OpAMP Server / Supervisor は動かせる
 ```sh
 # OpAMP Server
-$ cd opamp-server
+$ cd opamp-backend
 $ go run .
 
 # OpAMP Supervisor

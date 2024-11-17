@@ -5,9 +5,9 @@ import (
 	"os"
 	"os/signal"
 
-	"opamp-server/data"
-	"opamp-server/opampsrv"
-	"opamp-server/uisrv"
+	"opamp-backend/data"
+	"opamp-backend/opampsrv"
+	"opamp-backend/uisrv"
 )
 
 var logger = log.New(log.Default().Writer(), "[MAIN] ", log.Default().Flags()|log.Lmsgprefix|log.Lmicroseconds)

@@ -1,4 +1,31 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+exporters:
+  debug:
+
+  otlp:
+    endpoint: oteltui:4317
+    tls:
+      insecure: true
+
+processors:
+  batch:      
+
 service:
+
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlp]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [otlp]    
+
   telemetry:
     logs:
       # Enables JSON log output for the Agent.

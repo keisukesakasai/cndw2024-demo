@@ -1,4 +1,4 @@
-module opamp-server
+module opamp-backend
 
 go 1.22
 

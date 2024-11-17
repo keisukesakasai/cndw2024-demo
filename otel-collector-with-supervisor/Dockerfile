@@ -7,7 +7,7 @@ RUN go mod download
 RUN go build .
 
 FROM debian:bookworm
-RUN apt-get update && apt-get install -y ca-certificates && \
+RUN apt-get update && apt-get install -y ca-certificates net-tools && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app

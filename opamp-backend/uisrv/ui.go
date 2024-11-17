@@ -10,9 +10,9 @@ import (
 
 	"github.com/google/uuid"
 
-	"opamp-server/data"
+	"opamp-backend/data"
 
-	certs "opamp-server/certs"
+	certs "opamp-backend/certs"
 
 	"github.com/open-telemetry/opamp-go/protobufs"
 )

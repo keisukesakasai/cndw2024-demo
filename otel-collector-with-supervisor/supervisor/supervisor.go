@@ -298,7 +298,9 @@ func (s *Supervisor) getBootstrapInfo() (err error) {
 	// Start a one-shot server to get the Collector's agent description
 	// using the Collector's OpAMP extension.
 	err = srv.Start(flattenedSettings{
-		endpoint: fmt.Sprintf("localhost:%d", s.opampServerPort),
+		endpoint: fmt.Sprintf("0.0.0.0:%d", s.opampServerPort),
+		// Bindport が localhost 限定になっているから 0.0.0.0 にしてみた
+		// endpoint: fmt.Sprintf("localhost:%d", s.opampServerPort),
 		onConnectingFunc: func(_ *http.Request) (bool, int) {
 			connected.Store(true)
 			return true, http.StatusOK
@@ -379,10 +381,12 @@ func (s *Supervisor) startOpAMP() error {
 	if err := s.startOpAMPClient(); err != nil {
 		return err
 	}
+	s.logger.Info("Starting OpAMP Client...!!!!")
 
 	if err := s.startOpAMPServer(); err != nil {
 		return err
 	}
+	s.logger.Info("Starting OpAMP Server...!!!!")
 
 	return nil
 }
@@ -475,6 +479,7 @@ func (s *Supervisor) startOpAMPServer() error {
 	}
 
 	s.logger.Debug("Starting OpAMP server...")
+	s.logger.Info("Starting OpAMP server...")
 
 	connected := &atomic.Bool{}
 

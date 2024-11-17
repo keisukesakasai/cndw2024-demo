@@ -25,10 +25,10 @@ WORKDIR /
 COPY --from=builder / /
 
 # バイナリに実行権限を付与
-RUN chmod +x /opamp-server
+RUN chmod +x /opamp-backend
 
 # 必要に応じてポートを公開
 EXPOSE 4321
 
 # デフォルトの実行コマンド
-CMD ["/opamp-server"]
+CMD ["/opamp-backend"]
