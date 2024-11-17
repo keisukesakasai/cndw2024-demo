@@ -62,18 +62,6 @@ services:
     tty: true
     entrypoint: ["/otel-tui"]
     networks:
-      - my-network    
-
-  otel-collector-with-supervisor-a:
-    container_name: otel-collector-with-supervisor-a
-    build:
-      context: ./otel-collector-with-supervisor
-      dockerfile: Dockerfile
-    depends_on:
-      opamp-backend:
-        condition: service_healthy
-    restart: unless-stopped
-    networks:
       - my-network
 
 networks:
