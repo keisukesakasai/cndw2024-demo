@@ -4,15 +4,18 @@ server:
     insecure_skip_verify: true
 
 capabilities:
+  accepts_remote_config: true
+  reports_effective_config: true
+  accepts_packages: true
+  accepts_packages_statuses: true
+  reports_own_traces: true
+  reports_own_metrics: true
+  reports_own_logs: true      
   accepts_opamp_connection_settings: true
   accepts_other_connection_settings: true
-  accepts_remote_config: true
   accepts_restart_command: true
-  reports_effective_config: true
-  reports_own_metrics: true
-  reports_remote_config: true
-  reports_health: true
   reports_status: true
+  reports_remote_config: true  
 
 agent:
   executable: ./otelcontribcol_linux_amd64
