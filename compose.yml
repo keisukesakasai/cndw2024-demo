@@ -64,6 +64,19 @@ services:
     networks:
       - my-network
 
+  # otel-collector-with-supervisor-for-bindplane:
+  #   container_name: otel-collector-with-supervisor-for-bindplane
+  #   build:
+  #     context: ./otel-collector-with-supervisor-for-bindplane
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     opamp-backend:
+  #       condition: service_healthy
+  #   restart: unless-stopped
+  #   networks:
+  #     - my-network
+
+
 networks:
   my-network:
     driver: bridge

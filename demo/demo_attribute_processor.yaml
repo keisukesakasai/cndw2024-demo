@@ -1,0 +1,13 @@
+# Attribute Processor の追加
+processors:
+  batch:
+  attributes:
+    actions:
+      - key: CloudNativeDays
+        value: CNDW2024
+        action: insert
+service:
+  pipelines:
+    traces:
+      processors:
+        - attributes

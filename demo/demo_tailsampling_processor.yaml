@@ -1,0 +1,19 @@
+# Tail Sampling Processor の追加
+processors:
+  tail_sampling:
+    decision_wait: 10s
+    num_traces: 10
+    policies:
+      [
+        {
+          name: longer-than-600ms,
+          type: latency,
+          latency: { threshold_ms: 600 },
+        },
+      ]
+      
+service:
+  pipelines:
+    traces:
+      processors:
+        - tail_sampling
